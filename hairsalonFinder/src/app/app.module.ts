@@ -30,6 +30,7 @@ import { MaterialModule } from './material';
     MaterialModule,
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     !environment.production ?
       HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 100 }) : []

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Salon } from '../models/salon';
 import { Observable } from 'rxjs';
 import { HttpService } from '../services/http.service';
+import Hairservice from '../models/hairService';
 
 @Component({
   selector: 'app-salons',
@@ -12,23 +13,16 @@ export class SalonsComponent implements OnInit {
 
   salons: Observable<Salon[]>;
 
+  services: Hairservice[] = [
+    { id: 0, name: 'Haircut' },
+    { id: 1, name: 'Hairstyle' },
+    { id: 2, name: 'Hairtreatment' }
+  ];
+
   constructor(private httpService: HttpService) {
   }
 
   ngOnInit() {
     this.salons = this.httpService.getSalons();
   }
-
-  // salons: Salon[] = [
-  //   { id: 1, name: 'Ambrosia', busy: true, },
-  //   { id: 2, name: 'Copacabana Beauty and Hair Clinic' },
-  //   { id: 3, name: 'Bombasto' },
-  //   { id: 4, name: 'Celeritas' },
-  //   { id: 5, name: 'Magneta' },
-  //   { id: 6, name: 'RubberMan' },
-  //   { id: 7, name: 'Dynama' },
-  //   { id: 8, name: 'Dr IQ' },
-  //   { id: 9, name: 'Magma' },
-  //   { id: 10, name: 'Tornado' }
-  // ];
 }

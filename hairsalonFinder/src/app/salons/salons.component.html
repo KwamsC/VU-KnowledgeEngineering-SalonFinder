@@ -5,6 +5,15 @@
   </li>
 </ul> -->
 
+<mat-form-field>
+  <mat-select placeholder="Hairservice">
+    <mat-option *ngFor="let service of services" [id]="service.id">
+      {{service.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
 <app-salons-list [salons]="salons | async"></app-salons-list>
 <!-- <div *ngFor="let salon of salons">
   <h3>{{salona.name}} Details</h3>
