@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { environment } from '../environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,16 +14,20 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 import { SalonsComponent } from './salons/salons.component';
+import { SalonsListComponent } from './salons-list/salons-list.component';
+import { MaterialModule } from './material';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavComponent,
-    SalonsComponent
+    SalonsComponent,
+    SalonsListComponent
   ],
   imports: [
     FormsModule,
+    MaterialModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

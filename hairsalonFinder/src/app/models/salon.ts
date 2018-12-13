@@ -1,6 +1,12 @@
+import Hairservice from './hairService';
+
 export class Salon {
     id: number;
     name: string;
+    location: string;
+    district: string;
+    services: Hairservice[];
+
     // service: string;
     // address: string;
     // location: string;

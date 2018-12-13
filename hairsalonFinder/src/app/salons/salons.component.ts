@@ -10,25 +10,25 @@ import { HttpService } from '../services/http.service';
 })
 export class SalonsComponent implements OnInit {
 
-  // salons: Observable<Salon[]>;
+  salons: Observable<Salon[]>;
 
-  // constructor(private httpService: HttpService) { }
-
-
-  salons: Salon[] = [
-    { id: 1, name: 'Ambrosia' },
-    { id: 2, name: 'Copacabana Beauty and Hair Clinic' },
-    { id: 3, name: 'Bombasto' },
-    { id: 4, name: 'Celeritas' },
-    { id: 5, name: 'Magneta' },
-    { id: 6, name: 'RubberMan' },
-    { id: 7, name: 'Dynama' },
-    { id: 8, name: 'Dr IQ' },
-    { id: 9, name: 'Magma' },
-    { id: 10, name: 'Tornado' }
-  ];
+  constructor(private httpService: HttpService) {
+  }
 
   ngOnInit() {
-    // this.salons = this.httpService.getSalons();
+    this.salons = this.httpService.getSalons();
   }
+
+  // salons: Salon[] = [
+  //   { id: 1, name: 'Ambrosia', busy: true, },
+  //   { id: 2, name: 'Copacabana Beauty and Hair Clinic' },
+  //   { id: 3, name: 'Bombasto' },
+  //   { id: 4, name: 'Celeritas' },
+  //   { id: 5, name: 'Magneta' },
+  //   { id: 6, name: 'RubberMan' },
+  //   { id: 7, name: 'Dynama' },
+  //   { id: 8, name: 'Dr IQ' },
+  //   { id: 9, name: 'Magma' },
+  //   { id: 10, name: 'Tornado' }
+  // ];
 }
