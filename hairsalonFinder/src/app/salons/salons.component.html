@@ -1,6 +1,11 @@
-<h3>{{salona.name}} Details</h3>
-<div><span>id: </span>{{salona.id}}</div>
-<div><span>name: </span>{{salona.name}}</div>
+<!-- <h3>{{salona.name}} Details</h3> -->
+
+<ul class="heroes">
+  <li *ngFor="let salon of salons">
+    <div><span>id: </span>{{salon.id}}</div>
+    <div><span>name: </span>{{salon.name}}</div>
+  </li>
+</ul>
 <!-- <div *ngFor="let salon of salons">
   <h3>{{salona.name}} Details</h3>
   <div><span>id: </span>{{salona.id}}</div>
