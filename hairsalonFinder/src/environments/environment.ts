@@ -4,14 +4,6 @@
 
 export const environment = {
   production: false,
-  firebase: {
-    apiKey: 'AIzaSyAaZiYfARysXkddNACfFjoYpIFv6Fmyi60',
-    authDomain: 'hairsalonfinder.firebaseapp.com',
-    databaseURL: 'https://hairsalonfinder.firebaseio.com',
-    projectId: 'hairsalonfinder',
-    storageBucket: '',
-    messagingSenderId: '288874869361'
-  }
 };
 
 /*
