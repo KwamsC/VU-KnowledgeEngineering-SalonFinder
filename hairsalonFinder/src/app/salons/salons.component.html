@@ -5,14 +5,56 @@
   </li>
 </ul> -->
 
-<mat-form-field>
-  <mat-select placeholder="Hairservice">
-    <mat-option *ngFor="let service of services" [id]="service.id">
-      {{service.name}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
+<mat-card class=userForm>
 
+  <mat-form-field>
+    <!-- <h4>Select Hairstyle</h4> -->
+    <mat-select placeholder="Hairservice">
+      <mat-option *ngFor="let service of services" [value]="service.id">
+        {{service.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-select placeholder="Zone">
+      <mat-option value="n">North</mat-option>
+      <mat-option value="w">West</mat-option>
+      <mat-option value="s">South</mat-option>
+      <mat-option value="e">East</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-select placeholder="Price-range">
+      <mat-option value="n">15-20</mat-option>
+      <mat-option value="w">20-30</mat-option>
+      <mat-option value="s">30-40</mat-option>
+      <mat-option value="e">40-50</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <br>
+  <mat-radio-group>
+    <mat-radio-button value="1">Morning .</mat-radio-button>
+    <mat-radio-button value="2">Afternoon </mat-radio-button>
+  </mat-radio-group>
+
+  <br>
+
+  <button mat-button class=filter>Assign Salons</button>
+
+</mat-card>
+
+<br>
+<br>
 
 <app-salons-list [salons]="salons | async"></app-salons-list>
 <!-- <div *ngFor="let salon of salons">

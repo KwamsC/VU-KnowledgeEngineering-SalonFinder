@@ -6,6 +6,9 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 
 
@@ -16,6 +19,7 @@ import { NavComponent } from './nav/nav.component';
 import { SalonsComponent } from './salons/salons.component';
 import { SalonsListComponent } from './salons-list/salons-list.component';
 import { MaterialModule } from './material';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,8 @@ import { MaterialModule } from './material';
     HomeComponent,
     NavComponent,
     SalonsComponent,
-    SalonsListComponent
+    SalonsListComponent,
+    LoginComponent
   ],
   imports: [
     FormsModule,
@@ -32,8 +37,12 @@ import { MaterialModule } from './material';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    !environment.production ?
-      HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 100 }) : []
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
     // HttpClientInMemoryWebApiModule.forRoot(
     //   InMemoryDataService, { dataEncapsulation: false }
     // )

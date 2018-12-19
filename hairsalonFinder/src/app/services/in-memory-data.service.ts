@@ -20,16 +20,22 @@ export class InMemoryDataService extends InMemoryDbService {
     // }
 
     const salons = [
-      { id: 11, name: 'Mr. Nice' },
-      { id: 12, name: 'Narco' },
-      { id: 13, name: 'Bombasto' },
-      { id: 14, name: 'Celeritas' },
-      { id: 15, name: 'Magneta' },
-      { id: 16, name: 'RubberMan' },
-      { id: 17, name: 'Dynama' },
-      { id: 18, name: 'Dr IQ' },
-      { id: 19, name: 'Magma' },
-      { id: 20, name: 'Tornado' }
+      {
+        id: 11,
+        name: 'Discover Your Beauty',
+        address: 'Bijlmerdreef 184-B, 1102 AB Amsterdam',
+        zone: 'SOUTH',
+        hairservice: 'Haircuts',
+        gender: 'Men'
+      },
+      {
+        id: 12,
+        name: 'Q Hairclub Amsterdam',
+        address: 'Willem van Weldammelaan 29, 1082 KT Amsterdam',
+        zone: 'WEST',
+        hairservice: 'Haircuts',
+        gender: 'All'
+      },
     ];
     return { salons };
   }
