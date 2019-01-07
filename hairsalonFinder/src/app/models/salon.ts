@@ -1,11 +1,15 @@
 import Hairservice from './hairService';
+import { Stylist } from './stylist';
 
 export class Salon {
     id: number;
     name: string;
-    location: string;
-    district: string;
-    services: Hairservice[];
+    address: string;
+    zone: string;
+    hairservices: Hairservice[];
+    gender: string;
+    skill: string;
+    stylists: Stylist[];
 
     // service: string;
     // address: string;

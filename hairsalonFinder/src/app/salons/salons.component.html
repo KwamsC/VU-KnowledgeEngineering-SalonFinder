@@ -6,50 +6,57 @@
 </ul> -->
 
 <mat-card class=userForm>
+  <form (ngSubmit)="onSubmit()" >
 
   <mat-form-field>
     <!-- <h4>Select Hairstyle</h4> -->
-    <mat-select placeholder="Hairservice">
-      <mat-option *ngFor="let service of services" [value]="service.id">
+    <mat-select placeholder="Hairservice" [(ngModel)]="selectedService" name = "service">
+      <mat-option *ngFor="let service of services" [value]="service.name">
         {{service.name}}
       </mat-option>
     </mat-select>
   </mat-form-field>
   <br>
   <mat-form-field>
-    <mat-select placeholder="Zone">
-      <mat-option value="n">North</mat-option>
-      <mat-option value="w">West</mat-option>
-      <mat-option value="s">South</mat-option>
-      <mat-option value="e">East</mat-option>
-    </mat-select>
+      <mat-select placeholder="Zone" [(ngModel)]="selectedZone" name = "zone">
+          <mat-option *ngFor="let zone of zones" [value]="zone.location">
+            {{zone.location}}
+          </mat-option>
+        </mat-select>
   </mat-form-field>
   <br>
   <mat-form-field>
-    <mat-select placeholder="Price-range">
-      <mat-option value="n">15-20</mat-option>
-      <mat-option value="w">20-30</mat-option>
-      <mat-option value="s">30-40</mat-option>
-      <mat-option value="e">40-50</mat-option>
+    <mat-select placeholder="Salon for" [(ngModel)]="selectedGender" name = "gender">
+        <mat-option *ngFor="let gender of genders" [value]="gender.type">
+            {{gender.type}}
+          </mat-option>
     </mat-select>
   </mat-form-field>
 
+  <!-- <mat-form-field>
+      <mat-select placeholder="Price-range">
+        <mat-option value="n">15-20</mat-option>
+        <mat-option value="w">20-30</mat-option>
+        <mat-option value="s">30-40</mat-option>
+        <mat-option value="e">40-50</mat-option>
+      </mat-select>
+    </mat-form-field> -->
+
   <br>
-  <mat-form-field>
+  <!-- <mat-form-field>
     <input matInput [matDatepicker]="picker" placeholder="Choose a date">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
+  </mat-form-field> -->
 
   <br>
-  <mat-radio-group>
+  <!-- <mat-radio-group>
     <mat-radio-button value="1">Morning .</mat-radio-button>
     <mat-radio-button value="2">Afternoon </mat-radio-button>
-  </mat-radio-group>
+  </mat-radio-group> -->
 
-  <br>
-
-  <button mat-button class=filter>Assign Salons</button>
+  <button mat-button class=filter type="submit">Assign Salons</button>
+</form>
 
 </mat-card>
 

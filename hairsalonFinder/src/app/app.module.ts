@@ -19,7 +19,6 @@ import { NavComponent } from './nav/nav.component';
 import { SalonsComponent } from './salons/salons.component';
 import { SalonsListComponent } from './salons-list/salons-list.component';
 import { MaterialModule } from './material';
-import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +27,6 @@ import { LoginComponent } from './login/login.component';
     NavComponent,
     SalonsComponent,
     SalonsListComponent,
-    LoginComponent
   ],
   imports: [
     FormsModule,
@@ -37,7 +35,7 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
     HttpClientInMemoryWebApiModule.forRoot(
