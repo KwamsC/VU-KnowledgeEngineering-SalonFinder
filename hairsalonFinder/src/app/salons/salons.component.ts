@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Salon } from '../models/salon';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import {map, tap, withLatestFrom, filter} from 'rxjs/operators';
 import { HttpService } from '../services/http.service';
 import Hairservice from '../models/hairService';
 import {Request} from '../models/request';
@@ -29,6 +30,7 @@ export class SalonsComponent implements OnInit {
   selectedService: string;
   selectedGender: string;
   selectedZone: string;
+  requested = new Subject<any>();
 
   services: Hairservice[] = [
     { id: 0, name: 'Haircut' },
@@ -56,12 +58,11 @@ export class SalonsComponent implements OnInit {
     this.inputrequest.gender = this.selectedGender;
     this.inputrequest.pref_hairservice = this.selectedService;
     this.inputrequest.pref_zone = this.selectedZone;
-    console.log(this.inputrequest.pref_hairservice);
-    this.getfilteredSalons(this.inputrequest);
+   this.requested.next(this.inputrequest);
   }
 
   getfilteredSalons(inputrequest) {
-    // this.salons.filter((salon: Salon) => salon.gender === inputrequest.gender);
+    this.salons.pipe(map((salon: any) => salon.gender === inputrequest.gender), tap(console.log));
 
     // .map(projects => projects.filter(proj => proj.name === name));
     // return this.salons.filter(salon => salon.skill === value.);
@@ -69,6 +70,10 @@ export class SalonsComponent implements OnInit {
 
   ngOnInit() {
     this.salons = this.httpService.getSalons();
+    // tslint:disable-next-line:max-line-length tslint:disable-next-line:no-debugger
+    this.requested.pipe(withLatestFrom(this.salons), tap(console.log), map(([request, salons]: any) =>
+    salons.filter( salon => salon.gender === request.gender)))
+    .subscribe(console.log);
   }
 
   // requestSalons() {
